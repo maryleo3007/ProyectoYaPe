@@ -7,17 +7,17 @@ const screenValidarNumero = (update) => {
   const p = $('<h2 class="text-center"><strong>Para comenzar validemos tu número<strong><br><small class="smallValidar">Recibirás un SMS con un código de validación.</small></h2>');
 
   const form  = $('<form role="form"></form>');
-  const formGroupInput = $('<div class="form-group"></div>');
+  const formGroupInput = $('<div class="form-group formGroupInput"></div>');
   const labelInput = $('<label for="inputPhone" id="labelInputPhone"></label>');
   const input = $('<input type="text" id="inputPhone">');
 
   const formGroupCheck = $('<div class="form-check"></div>');
   const labelCheck = $('<label class="form-check-label"></label>');
-  const checkbox = $('<input class="form-check-input" type="checkbox" value=""><br> Acepto los <a class="terminos">Terminos y condiciones</a>');
+  const checkbox = $('<input class="form-check-input" type="checkbox" value="">Acepto los <a class="terminos"> Terminos y condiciones</a>');
 
   const formGroupButton = $('<div class="form-group"></div>');
   const divButton = $('<div class="offset-sm-2 col-sm-10"></div>');
-  const button = $('<button type="submit" class="btn btn-primary">Continuar</button>');
+  const button = $('<button type="submit" class="btn btnValidarPhone">CONTINUAR</button>');
 
   container.append(row);
   row.append(col);
@@ -34,9 +34,14 @@ const screenValidarNumero = (update) => {
   formGroupButton.append(divButton);
   divButton.append(button);
 
-  button.on('click',_ => {
-    state.screen = "screen2";
-    update();
+  $( _ => {
+    $('.btnValidarPhone').attr('disabled','disabled');
+    $('input[type="checkbox"]').change(function(){
+        if($(this).cheked == true){
+            $('input[type="submit"]').removeAttr('disabled');
+            $('input[type="submit"]').addClass('btnValidarPhoneEnabled');
+        }
+    });
   });
 
   return container
