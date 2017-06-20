@@ -1,0 +1,22 @@
+.owl-nav{
+  display: none;
+}
+.owl-carousel .owl-item img {
+    width: 70%;
+    margin: 0 auto;
+}
+.containerInicio{
+  margin: 35px 0;
+}
+.owl-carousel.owl-loaded {
+    margin-top: 56px;
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #cd1616;
+}
+#btnInicio{
+  background-color: #f7b617;
+  padding: 11px 108px;
+  margin-top: 30px;
+  border: none;
+}

@@ -6,15 +6,45 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Ya pe!</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="owlcarousel/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="owlcarousel/dist/assets/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <div id="root"></div>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="js/vendor/bootstrap.min.js"></script>
-  <script src="js/utils/get-json.js"></script>
+  <script src="owlCarousel/dist/owl.carousel.min.js"></script>
+  <script src="js/util/get-json.js"></script>
   <script src="js/components/yapeScreenOne.js"></script>
   <!-- <script src="js/components/yapeScreen2.js"></script> -->
+
   <script src="js/app.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      loop:true,
+      margin:50,
+      nav:false,
+      center:true,
+      responsiveClass:true,
+      responsive:{
+          0:{
+              items:1,
+              nav:true
+          },
+          600:{
+              items:3,
+              nav:false
+          },
+          1000:{
+              items:5,
+              nav:true,
+              loop:false
+          }
+      }
+    });
+  });
+  </script>
 </body>
 </html>
