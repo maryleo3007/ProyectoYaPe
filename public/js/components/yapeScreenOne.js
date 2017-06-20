@@ -9,7 +9,7 @@ const yapeInicio = (update) => {
   const h4ItemOne = $('<h4 class="text-center">Paga a quien quieras desde donde quieras,sin usar efectivo.</h4>');
   const contenidoTwo = $('<div class="item"></div>');
   const h1ItemTwo = $('<h1 class="text-center">Paga a tus amigos</h1>');
-  const h4ItemTwo = $('<h4 class="text-center">Paga a quien quieras desde donde quieras,sin usar efectivo.</h4>');
+  const h4ItemTwo = $('<small class="text-center">Paga a quien quieras desde donde quieras,sin usar efectivo.</small>');
   const imageTwo = $('<img src="img/icons/icon.png" class="img-responsive" alt="">');
   const contenidoThree = $('<div class="item"></div>');
   const h1ItemThree = $('<h1 class="text-center">Paga a tus amigos</h1>');

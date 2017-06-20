@@ -1,3 +1,6 @@
+body,h1,h2,h3,h4,h5,h6,span,input,label,small{
+  font-family: 'Roboto' !important;
+}
 .owl-nav{
   display: none;
 }
@@ -5,7 +8,7 @@
     width: 70%;
     margin: 0 auto;
 }
-.containerInicio{
+.containerInicio,.containerValidar{
   margin: 35px 0;
 }
 .owl-carousel.owl-loaded {
@@ -19,4 +22,24 @@
   padding: 11px 108px;
   margin-top: 30px;
   border: none;
+}
+.smallValidar{
+  font-size: 56%;
+}
+.imgValidarPhone{
+  max-width: 60%;
+  margin: 0 auto;
+}
+#inputPhone{
+    border: 0;
+    border-bottom: 1px solid #bdbdbd;
+    padding: 5px 5px 5px 25px;
+    width: 230px;
+    background-position: 4px -91px;
+}
+#labelInputPhone{
+  background: url("../img/icons/phoneandnumber.png") no-repeat scroll 0 0 transparent;
+  width: 100px;
+  height: 50px;
+  background-position: 4px -26px;
 }

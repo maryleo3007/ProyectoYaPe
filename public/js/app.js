@@ -7,9 +7,8 @@ const render = (root) => {
   if (state.screen == "") {
     wrapper.append(yapeInicio(_ =>render(root)));
     root.append(wrapper);
-  }
-  if(state.screen == "screen2"){
-    wrapper.append(screenValidarNumero(_ =>render(root)));
+  }else if(state.screen == "screen2"){
+    wrapper.append(screenValidarNumero());
     root.append(wrapper);
   }
 }
