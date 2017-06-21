@@ -8,12 +8,13 @@ const render = (root) => {
     wrapper.append(yapeInicio(_ =>render(root)));
     root.append(wrapper);
   }else if(state.screen == "screen2"){
-    wrapper.append(screenValidarNumero());
+    wrapper.append(screenValidarNumero(_ =>render(root)));
     root.append(wrapper);
   }
 }
 const state = {
-  screen: ""
+  screen: "",
+  phoneNumber:null
 }
 
 $(_ => {

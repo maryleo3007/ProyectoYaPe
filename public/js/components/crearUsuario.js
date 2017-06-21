@@ -1,10 +1,9 @@
-const screenValidarNumero = (update) => {
+const CreaUsuarioYape = (update) => {
   const container = $('<div class="container"></div>');
-  const row = $('<div class="row containerValidar"></div>');
+  const row = $('<div class="row containerCrearUsuario"></div>');
   const col = $('<div class="col-md-12 col-sm-12"></div>');
-
-  const image = $('<img src="img/icons/phone.png" class="img-responsive imgValidarPhone" alt="">');
-  const p = $('<h2 class="text-center"><strong>Para comenzar validemos tu número<strong><br><small class="smallValidar">Recibirás un SMS con un código de validación.</small></h2>');
+  const imageOne = $('<img src="img/icons/lockone.png" class="img-responsive" alt="">');
+  const p = $('<h2 class="text-center"><strong>Crea tu usuario Yape<strong><br><small class="smallValidar">Ingresa un nombre, email y clave de usuario.</small></h2>');
 
   const form  = $('<form  id="searchForm"></form>');
   const formGroupInput = $('<div class="form-group formGroupInput"></div>');
@@ -20,26 +19,23 @@ const screenValidarNumero = (update) => {
   const divButton = $('<div class="offset-sm-2 col-sm-10"></div>');
   const button = $('<button type="submit" class="btn btnValidarPhone">CONTINUAR</button>');
 
+
   container.append(row);
   row.append(col);
-  col.append(image);
-  col.append(p);
-  //col.append(form);
-  //form.append(formGroupInput);
-  col.append(formGroupInput);
-  formGroupInput.append(labelInput);
-  formGroupInput.append(input);
-  formGroupInput.append(span);
-  col.append(formGroupCheck);
-  formGroupCheck.append(labelCheck);
-  labelCheck.append(checkbox);
-  col.append(formGroupButton);
-  formGroupButton.append(divButton);
-  divButton.append(button);
+  col.append(carousel);
+  carousel.append(contenidoOne);
+  contenidoOne.append(imageOne);
+  contenidoOne.append(h1ItemOne);
+  contenidoOne.append(h4ItemOne);
+  carousel.append(contenidoTwo);
+  contenidoTwo.append(imageTwo);
+  contenidoTwo.append(h1ItemTwo);
+  contenidoTwo.append(h4ItemTwo);
+  carousel.append(contenidoThree);
+  contenidoThree.append(imageThree);
+  contenidoThree.append(h1ItemThree);
+  contenidoThree.append(h4ItemThree);
+  col.append(button);
 
-  // $( _ => {
-
-  // });
 
   return container
-}

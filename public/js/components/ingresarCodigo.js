@@ -1,10 +1,10 @@
-const screenValidarNumero = (update) => {
+const IngresarCodigo = (update) => {
   const container = $('<div class="container"></div>');
   const row = $('<div class="row containerValidar"></div>');
   const col = $('<div class="col-md-12 col-sm-12"></div>');
 
-  const image = $('<img src="img/icons/phone.png" class="img-responsive imgValidarPhone" alt="">');
-  const p = $('<h2 class="text-center"><strong>Para comenzar validemos tu número<strong><br><small class="smallValidar">Recibirás un SMS con un código de validación.</small></h2>');
+  const image = $('<img src="img/icons/message.png" class="img-responsive imgValidarPhone" alt="">');
+  const p = $('<h2 class="text-center"><strong>Ahora Ingresa tu código<strong><br><small class="smallValidar">Enviamos.</small></h2>');
 
   const form  = $('<form  id="searchForm"></form>');
   const formGroupInput = $('<div class="form-group formGroupInput"></div>');

@@ -8,7 +8,7 @@ body,h1,h2,h3,h4,h5,h6,span,input,label,small{
     width: 70%;
     margin: 0 auto;
 }
-.containerInicio,.containerValidar{
+.containerInicio{
   margin: 35px 0;
 }
 .owl-carousel.owl-loaded {
@@ -19,7 +19,7 @@ body,h1,h2,h3,h4,h5,h6,span,input,label,small{
 }
 #btnInicio{
   background-color: #f7b617;
-  padding: 11px 108px;
+  padding: 4% 29%;
   margin-top: 30px;
   border: none;
 }
@@ -56,4 +56,9 @@ input[type=checkbox]{
 }
 .btnValidarPhoneEnabled{
   background-color: #f7b617;
+}
+.errorInputValidator{
+  color: red;
+  font-size: 12px;
+  padding-left: 25%;
 }
