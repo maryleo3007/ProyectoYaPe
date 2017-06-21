@@ -10,11 +10,15 @@ const render = (root) => {
   }else if(state.screen == "screen2"){
     wrapper.append(screenValidarNumero(_ =>render(root)));
     root.append(wrapper);
+  }else if(state.screen == "screen3"){
+    wrapper.append(IngresarCodigo(_ =>render(root)));
+    root.append(wrapper);
   }
 }
 const state = {
   screen: "",
-  phoneNumber:null
+  phoneNumber:null,
+  code: null
 }
 
 $(_ => {

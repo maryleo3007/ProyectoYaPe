@@ -1,3 +1,4 @@
+'use strict';
 const yapeInicio = (update) => {
   const container = $('<div class="container"></div>');
   const row = $('<div class="row containerInicio"></div>');
