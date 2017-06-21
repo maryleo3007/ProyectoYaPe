@@ -1,7 +1,7 @@
 'use strict';
 const IngresarCodigo = (update) => {
 
-  const container = $('<div class="container"></div>');
+  const containerCod = $('<div id = "containerCod" class="container"></div>');
   const row = $('<div class="row containerValidar"></div>');
   const col = $('<div class="col-md-12 col-sm-12"></div>');
 
@@ -12,27 +12,21 @@ const IngresarCodigo = (update) => {
   const formGroupInput = $('<div class="form-group formGroupInput"></div>');
   const labelInput = $('<label for="inputCodigo" id="labelInputCodigo"></label>');
   const input = $('<input type="text" id="inputCodigo">');
-  const small = $('<small class="smallValidar">Reintentar en </small>');
-  const span = $('<br><span id="errorInputValidator"></span>');
+  const message = $('<p class="errorInputValidator"><p>');
+  const small = $('<p class="pReintentar">Reintentar en<p>');
+  const span = $('<span id="segundos"></span>');
 
-  container.append(row);
+  containerCod.append(row);
   row.append(col);
   col.append(image);
   col.append(p);
   col.append(formGroupInput);
   formGroupInput.append(labelInput);
   formGroupInput.append(input);
-  formGroupInput.append(small);
-  formGroupInput.append(span);
+  formGroupInput.append(message);
+  col.append(small);
+  col.append(span);
 
-  input.on('keyup',(e) => {
-
-    const valor = (e.target).value;
-    if(valor == state.code){
-      state.screen = "";
-      update();
-    }
-  });
-
-  return container
+  
+  return containerCod;
 }
