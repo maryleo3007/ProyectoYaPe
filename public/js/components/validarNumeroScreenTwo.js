@@ -37,7 +37,33 @@ const screenValidarNumero = (update) => {
   formGroupButton.append(divButton);
   divButton.append(button);
 
-
-
+  $('.btnValidarPhone').attr('disabled','disabled');
+      checkbox.change(function(){
+          if($(this).checked !== false){
+              $('.btnValidarPhone').removeAttr('disabled');
+              $('.btnValidarPhone').addClass('btnValidarPhoneEnabled');
+          }
+      });
+      button.click(function( event ) {
+          event.preventDefault();
+           const phone = input.val();
+           const terms = true;
+           if (!/^([0-9])*$/.test(phone) || phone.length < 9){
+              $('.errorInputValidator').html('<span>El teléfono es un número de 9 dígitos<span>');
+           }else {
+               $.post( '/api/registerNumber', {phone:phone,terms:terms},
+                (response)=>{
+                  if (response.success == true) {
+                    state.phoneNumber = response.data.phone;
+                    state.code = response.data.code;
+                    console.log(response);
+                    state.screen = "screen3";
+                    update();
+                  }else{
+                    $('.errorInputValidator').html(response.message);
+                  }
+               } ,"json");
+           }
+        });
   return container
 }

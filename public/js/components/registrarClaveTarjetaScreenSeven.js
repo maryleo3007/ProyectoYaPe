@@ -30,7 +30,11 @@ const RegistrarClave = (update) => {
   formGroupButton.append(divButton);
   divButton.append(button);
 
-
+  button.click(function( event ) {
+     event.preventDefault();
+     state.screen = "screen8";
+     update();
+   });
 
   return containerCod;
 }

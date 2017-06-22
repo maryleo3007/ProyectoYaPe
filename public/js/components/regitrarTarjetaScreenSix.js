@@ -45,7 +45,33 @@ const RegistoTarjeta = (update) =>{
     formGroupButton.append(divButton);
     divButton.append(button);
 
+    button.click(function( event ) {
+        event.preventDefault();
+         const cardNumber = input.val();
+         const month = inputMonth.val();
+         const year = inputYeaar.val();
 
+        $.post( '/api/registerCard',
+          {
+            phone:state.phoneNumber,
+            cardNumber:cardNumber,
+            cardMonth:month,
+            cardYear:year,
+            cardPassword: state.code
+          },
+         (response)=>{
+           if (response.success == true) {
+             state.cardNumber = response.data.cardNumber;
+             state.month = response.data.cardMonth;
+             state.year = response.data.cardYear;
+             console.log(response);
+             state.screen = "screen7";
+             update();
+           }else{
+             $('.errorInputValidator').html(response.message);
+           }
+        } ,"json");
+      });
 
     return container;
 
