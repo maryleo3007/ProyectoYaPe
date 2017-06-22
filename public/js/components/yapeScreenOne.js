@@ -35,7 +35,10 @@ const yapeInicio = (update) => {
   contenidoThree.append(h4ItemThree);
   col.append(button);
 
-
+  button.on('click',_ => {
+   state.screen = "screen2";
+   update();
+ });
 
   return container
 }

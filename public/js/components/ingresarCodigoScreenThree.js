@@ -13,7 +13,8 @@ const IngresarCodigo = (update) => {
   const labelInput = $('<label for="inputCodigo" id="labelInputCodigo"></label>');
   const input = $('<input type="text" id="inputCodigo">');
   const message = $('<p class="errorInputValidator"><p>');
-  const small = $('<p class="pReintentar">Reintentar en<p>');
+  const small = $('<p class="pReintentar">Reintentar en</p>');
+  const label= $('<label id="labelReloj"></label>');
   const span = $('<span id="segundos"></span>');
 
   containerCod.append(row);
@@ -25,8 +26,39 @@ const IngresarCodigo = (update) => {
   formGroupInput.append(input);
   formGroupInput.append(message);
   col.append(small);
+  col.append(label);
   col.append(span);
 
-  
+  $('containerCod').ready(function() {
+    var cont = 21;
+    var id = setInterval(frame, 1000);
+    function frame() {
+      if (cont == 0) {
+        clearInterval(id);
+        $.post( '/api/resendCode', {phone:state.phoneNumber},
+                   (response)=>{
+                     if (response.success == true) {
+                       state.code = response.data;
+                       console.log(response);
+                      $('.errorInputValidator').html(response.message);
+                     }
+                  } ,"json");
+      } else {
+        cont--;
+        $('span').html(cont);
+      }
+    }
+    input.on('keyup',(e) => {
+
+      const valor = (e.target).value;
+      if(valor == state.code){
+        clearInterval(id);
+        state.screen = "screen4";
+        update();
+      }
+    });
+
+  });
+
   return containerCod;
 }
