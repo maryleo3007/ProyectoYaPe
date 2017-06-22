@@ -13,7 +13,8 @@ const IngresarCodigo = (update) => {
   const labelInput = $('<label for="inputCodigo" id="labelInputCodigo"></label>');
   const input = $('<input type="text" id="inputCodigo">');
   const message = $('<p class="errorInputValidator"><p>');
-  const small = $('<p class="pReintentar">Reintentar en<p>');
+  const small = $('<p class="pReintentar">Reintentar en</p>');
+  const label= $('<label id="labelReloj"></label>');
   const span = $('<span id="segundos"></span>');
 
   containerCod.append(row);
@@ -25,6 +26,7 @@ const IngresarCodigo = (update) => {
   formGroupInput.append(input);
   formGroupInput.append(message);
   col.append(small);
+  col.append(label);
   col.append(span);
 
   $('containerCod').ready(function() {

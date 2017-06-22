@@ -34,6 +34,7 @@ const state = {
   screen: "",
   phoneNumber:null,
   code: null,
+  password:null,
   name:null,
   email:null,
   password:null,
