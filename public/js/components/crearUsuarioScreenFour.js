@@ -14,12 +14,12 @@ const CreaUsuarioYape = (update) => {
   const formGroupInputEmail = $('<div class="form-group formGroupInputUser"></div>');
   const labelInputEmail = $('<label for="inputPhone" id="labelInputEmail"></label>');
   const inputEmail = $('<input type="email" id="inputEmail">');
-  const spanEmail = $('<br><span class="errorInputValidator"></span>');
+  const spanEmail = $('<br><span class="errorEmail errorInputValidator"></span>');
 
   const formGroupInputPass = $('<div class="form-group formGroupInputUser"></div>');
   const labelInputPass = $('<label for="inputPass" id="labelInputPass"></label>');
   const inputPass = $('<input type="password" id="inputPass">');
-  const spanPass = $('<br><span class="errorInputValidator"></span>');
+  const spanPass = $('<br><span class="errorPassword errorInputValidator"></span>');
   const small = $('<p class="pUser text-center"><small>Cuida esta clave como oro, es tu acceso a Yape.</small><p>');
 
   const formGroupButton = $('<div class="form-group"></div>');
@@ -48,6 +48,43 @@ const CreaUsuarioYape = (update) => {
   formGroupButton.append(divButton);
   formGroupButton.append(button);
 
-    
+  button.click(function( event ) {
+          event.preventDefault();
+           const userValue = inputUser.val();
+           const emailValue = inputEmail.val();
+           const codeValue = inputPass.val();
+
+           const expresion = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/ ;
+
+           if (!expresion.test(emailValue)){
+              $('.errorEmail').html('<span>Email inválido: Ingrese Ej: hola@hola.hi</span>');
+           }else if (codeValue.length == 0 || codeValue =="password") {
+             $('.errorEmail').html('<span> </span>');
+             $('.errorPassword').html('<span>Password inválido</span>');
+           }else{
+             $.post( '/api/createUser',
+               {
+                 phone:state.phoneNumber,
+                 name:userValue,
+                 email:emailValue,
+                 password:codeValue
+               },
+              (response)=>{
+                if (response.success == true) {
+                  state.name = response.data.name;
+                  state.email = response.data.email;
+                  state.password = response.data.password;
+                  console.log(response);
+                  state.screen = "screen5";
+                  update();
+                }else{
+                  $('.errorInputValidator').html(response.message);
+                }
+             } ,"json");
+           }
+
+
+        });
+
   return container;
 }

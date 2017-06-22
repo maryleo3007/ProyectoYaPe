@@ -10,6 +10,10 @@ const CreaUsuarioOk = (update) => {
   col.append(image);
   col.append(p);
 
+  setTimeout(function() {
+      state.screen = "screen6"
+      update();
+    },5000);
 
   return container;
 }
