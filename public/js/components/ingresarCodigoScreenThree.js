@@ -31,28 +31,31 @@ const IngresarCodigo = (update) => {
 
   input.NumberOnly();
   let count = 21;
-  const timer = setInterval(_ => {
-    count -= 1;
-    if (count == 0) {count = 21;}
-    $('#segundos').text(count);
-  }, 1000);
-    const generateCode = setInterval(_ => {
-      const resendCode = () => {
-        $.post( '/api/resendCode', {phone:state.phoneNumber},
-        (response)=>{
-          if (response.success == true) {
+    const timer = setInterval(_ => {
+        count -= 1;
+        if (count == 0) {count = 21;}
+        $('#segundos').text(count);
+    }, 1000);
+    const resend = () => {
+    $.post('./api/resendCode', {
+        phone: state.phoneNumber
+    }, (response) => {
+        if (response.succes != false) {
             state.code = response.data;
-            console.log(response);
             $('.errorInputValidator').html('El nuevo código generado es: '+state.code);
-          }
-        } ,"json");
-      }
+            console.log(state.code);
+        }
+    },"json");
+    }
+
+    const generateNewCode= setInterval(_ => {
+        resend();
     }, 21000);
 
     input.on('keyup',(e) => {
       const valor = (e.target).value;
       if(valor == state.code){
-        clearInterval(generateCode);
+        clearInterval(generateNewCode);
         state.screen = "screen4";
         update();
       }
