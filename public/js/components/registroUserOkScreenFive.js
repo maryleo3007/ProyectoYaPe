@@ -13,7 +13,7 @@ const CreaUsuarioOk = (update) => {
   setTimeout(function() {
       state.screen = "screen6"
       update();
-    },5000);
+    },3000);
 
   return container;
 }

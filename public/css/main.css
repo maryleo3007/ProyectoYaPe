@@ -17,6 +17,9 @@ body,h1,h2,h3,h4,h5,h6,span,input,label,small{
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #cd1616;
 }
+input:disabled{
+  background-color: #ece9e9!important;
+}
 #btnInicio{
   background-color: #f7b617;
   padding: 4% 29%;
@@ -65,7 +68,7 @@ input[type=checkbox]{
   margin-top: 30px;
 }
 .btnValidarPhoneEnabled{
-  background-color: #f7b617;
+  background-color: #f7b617!important;
 }
 .errorInputValidator{
   color: red;
@@ -74,9 +77,17 @@ input[type=checkbox]{
 }
 .pReintentar{
   color: #bdbdbd;
-  display: inline;;
+  display: inline;
 }
-/*crear usuario*/
+#labelReloj{
+  background: url("../img/icons/clock.png") no-repeat scroll 0 0 transparent;
+  width: 50px;
+  height: 50px;
+  background-position: 11px 10px;
+  margin-bottom: -23px;
+  background-size: 30px;
+}
+/*crear usuario screen4*/
 #labelInputUser{
   background: url("../img/icons/user.png") no-repeat scroll 0 0 transparent;
   width: 100px;
@@ -151,7 +162,7 @@ input[type=checkbox]{
 #inputMonth,#inputYeaar{
     border: 0;
     border-bottom: 1px solid #bdbdbd;
-    padding: 5px 5px 5px 25px;
+    padding: 5px 5px 5px 15px;
     width: 10%;
     background-position: 4px -91px;
 }

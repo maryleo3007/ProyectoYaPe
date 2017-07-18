@@ -37,6 +37,7 @@ const screenValidarNumero = (update) => {
   formGroupButton.append(divButton);
   divButton.append(button);
 
+
   input.NumberOnly();
   $('.btnValidarPhone').attr('disabled','disabled');
       checkbox.change(function(){
@@ -52,6 +53,7 @@ const screenValidarNumero = (update) => {
            const terms = true;
            if (phone.length < 9 || phone.length>9){
               $('.errorInputValidator').html('<span>El teléfono es un número de 9 dígitos<span>');
+            
            }else {
                $.post( '/api/registerNumber', {phone:phone,terms:terms},
                 (response)=>{
