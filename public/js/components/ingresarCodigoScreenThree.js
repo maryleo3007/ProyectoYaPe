@@ -27,36 +27,47 @@ const IngresarCodigo = (update) => {
   col.append(small);
   col.append(span);
 
-  $('containerCod').ready(function() {
-    var cont = 21;
-    var id = setInterval(frame, 1000);
-    function frame() {
-      if (cont == 0) {
-        clearInterval(id);
+  input.NumberOnly();
+  let count = 21;
+  const timer = setInterval(_ => {
+    count -= 1;
+    if (count == 0) {count = 21;}
+    $('#segundos').text(count);
+  }, 1000);
+    const generateCode = setInterval(_ => {
+      const resendCode = () => {
         $.post( '/api/resendCode', {phone:state.phoneNumber},
-                   (response)=>{
-                     if (response.success == true) {
-                       state.code = response.data;
-                       console.log(response);
-                      $('.errorInputValidator').html(response.message);
-                     }
-                  } ,"json");
-      } else {
-        cont--;
-        $('span').html(cont);
+        (response)=>{
+          if (response.success == true) {
+            state.code = response.data;
+            console.log(response);
+            $('.errorInputValidator').html('El nuevo código generado es: '+state.code);
+          }
+        } ,"json");
       }
-    }
-    input.on('keyup',(e) => {
+    }, 21000);
 
+    input.on('keyup',(e) => {
       const valor = (e.target).value;
       if(valor == state.code){
-        clearInterval(id);
+        clearInterval(generateCode);
         state.screen = "screen4";
         update();
       }
     });
-
-  });
-
   return containerCod;
 }
+jQuery.fn.NumberOnly = function() {
+    return this.each(function() {
+        $(this).keydown(function(e) {
+            const key = e.charCode || e.keyCode || 0;
+            return (
+                key == 8 || key == 9 ||
+                key == 13 || key == 110 ||
+                key == 190 ||
+                (key >= 35 && key <= 40) ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+        });
+    });
+};

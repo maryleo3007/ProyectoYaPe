@@ -82,8 +82,6 @@ const CreaUsuarioYape = (update) => {
                 }
              } ,"json");
            }
-
-
         });
 
   return container;

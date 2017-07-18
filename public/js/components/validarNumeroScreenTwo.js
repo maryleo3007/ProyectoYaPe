@@ -37,6 +37,7 @@ const screenValidarNumero = (update) => {
   formGroupButton.append(divButton);
   divButton.append(button);
 
+  input.NumberOnly();
   $('.btnValidarPhone').attr('disabled','disabled');
       checkbox.change(function(){
           if($(this).checked !== false){
@@ -44,11 +45,12 @@ const screenValidarNumero = (update) => {
               $('.btnValidarPhone').addClass('btnValidarPhoneEnabled');
           }
       });
+
       button.click(function( event ) {
           event.preventDefault();
            const phone = input.val();
            const terms = true;
-           if (!/^([0-9])*$/.test(phone) || phone.length < 9){
+           if (phone.length < 9 || phone.length>9){
               $('.errorInputValidator').html('<span>El teléfono es un número de 9 dígitos<span>');
            }else {
                $.post( '/api/registerNumber', {phone:phone,terms:terms},
@@ -56,7 +58,7 @@ const screenValidarNumero = (update) => {
                   if (response.success == true) {
                     state.phoneNumber = response.data.phone;
                     state.code = response.data.code;
-                    console.log(response);
+                    alert(response.data.code);
                     state.screen = "screen3";
                     update();
                   }else{
@@ -67,3 +69,18 @@ const screenValidarNumero = (update) => {
         });
   return container
 }
+//code plugin validate number
+jQuery.fn.NumberOnly = function() {
+    return this.each(function() {
+        $(this).keydown(function(e) {
+            const key = e.charCode || e.keyCode || 0;
+            return (
+                key == 8 || key == 9 ||
+                key == 13 || key == 110 ||
+                key == 190 ||
+                (key >= 35 && key <= 40) ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+        });
+    });
+};
