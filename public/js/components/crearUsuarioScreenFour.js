@@ -75,7 +75,7 @@ const CreaUsuarioYape = (update) => {
           $("#btnCrearCuenta").removeAttr('disabled');
           $('#btnCrearCuenta').addClass('btnValidarPhoneEnabled');
         }else {
-          $('.errorPassword').html('<span>Ingresa tu Password</span>');
+          $('.errorPassword').html('<span>Ingresa Password de 6 dígitos</span>');
         }
   });
 
