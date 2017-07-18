@@ -113,11 +113,6 @@ const CreaUsuarioYape = (update) => {
                 }
              } ,"json");
            }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 5827f9c0780af89bc009d8f6f18fa336b99177f7
         });
 
   return container;

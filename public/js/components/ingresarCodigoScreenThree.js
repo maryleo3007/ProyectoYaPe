@@ -29,7 +29,6 @@ const IngresarCodigo = (update) => {
   col.append(label);
   col.append(span);
 
-<<<<<<< HEAD
   input.NumberOnly();
   let count = 21;
     const timer = setInterval(_ => {

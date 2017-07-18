@@ -210,6 +210,16 @@ input[type=checkbox]{
   margin-bottom: -16px;
   padding-left: 20%;
 }
+#inputMonth, #inputYeaar{
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    width: 10%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 13px;
+}
 .lastMove{
   color: #fff;
   margin-top: 5%;
