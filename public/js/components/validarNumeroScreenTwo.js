@@ -37,7 +37,6 @@ const screenValidarNumero = (update) => {
   formGroupButton.append(divButton);
   divButton.append(button);
 
-
   input.NumberOnly();
   $('.btnValidarPhone').attr('disabled','disabled');
       checkbox.change(function(){

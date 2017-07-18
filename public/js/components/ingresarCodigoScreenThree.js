@@ -29,6 +29,7 @@ const IngresarCodigo = (update) => {
   col.append(label);
   col.append(span);
 
+<<<<<<< HEAD
   input.NumberOnly();
   let count = 21;
     const timer = setInterval(_ => {
@@ -60,6 +61,7 @@ const IngresarCodigo = (update) => {
         update();
       }
     });
+
   return containerCod;
 }
 jQuery.fn.NumberOnly = function() {
